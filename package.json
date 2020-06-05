@@ -9,11 +9,13 @@
   "author": "Drum",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
     "browser-sync": "^2.26.7",
     "del": "^3.0.0",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
     "gulp-cache": "^1.1.2",
@@ -33,8 +35,17 @@
     "node-sass": "^4.14.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "gulp-if": "^2.0.2",
     "imagemin-webp": "^5.1.0",
     "yargs": "^15.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poliakh/todolist-vanilla-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Poliakh/todolist-vanilla-js/issues"
+  },
+  "homepage": "https://github.com/Poliakh/todolist-vanilla-js#readme"
 }
