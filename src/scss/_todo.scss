@@ -1,0 +1,149 @@
+
+#clearItem{
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	display: none;
+}
+.todoApp {
+	width: 100%;
+	max-width: 500px;
+	min-width: 150px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10vh;
+	background-color: $bgColor;
+
+	// border: 1px solid rgba(255, 255, 255, 0.397);
+}
+.todoApp__header {
+	text-align: center;
+	line-height: 50px;
+}
+.item {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	border: 2px solid $border;
+	padding: 10px 0;
+	border-top: 0;
+	box-sizing: border-box;
+	&:hover {
+		& .item__btn-pen{
+			opacity: 1;
+		}
+	}
+}
+.item:first-child{
+	border-radius: 5px 5px 0 0 ;
+	border-top:2px solid $border;
+}
+.item:last-child{
+	border-radius: 0 0 5px 5px ;
+}
+.item__label {
+	margin-left: auto;
+	width: 100%;
+	margin-top: auto;
+	margin-bottom: auto;
+	padding-left: 15px;
+}
+.item__check {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 15px;
+	width: 15px;
+	cursor: pointer;
+	&:checked ~.item__label{
+		text-decoration:line-through;
+	}
+}
+
+.item__btn, .form__add {
+	max-width: 35px;
+	min-width: 35px;
+	width: 35px;
+	height: 30px;
+	border-radius: 5px;
+	border: 2px solid $border;
+	margin-right:10px;
+	background-color: $bgColor;
+	cursor: pointer;
+	@include trnaitionBG(0.2s, ease-in-out);
+	outline: none;
+	
+	&:hover, &:focus {
+		background-color: #ffc202;
+		border-color: $hover;
+
+		& .item__icon {
+			stroke: $hover;
+		}
+	}
+	&:active {
+		background-color: #ffc202;
+		border-color: rgb(255, 255, 255);
+
+		& .item__icon {
+			stroke: rgb(255, 255, 255);
+			fill: $colorBase;
+
+		}
+	}
+}
+.item__btn-pen{
+	border:none;
+	opacity: 0;
+	transition: opacity .3s;
+	width: 20px;
+	height: 20px;
+	&:hover, &:focus{
+		background-color:inherit;
+		opacity: 1;
+		& .item__icon {
+			stroke: rgb(255, 255, 255);
+			fill: rgb(206, 206, 206);
+
+		}
+	}
+	
+}
+.item__icon {
+	width: 14px;
+	height: 14px;
+	margin-top: 3px;
+	stroke: $colorBase;
+	fill: $colorBase;
+	transition: stroke 0.15s, fill .15s;
+}
+.form{
+	margin-top: 15px;
+	width: 100%;
+	display: flex;
+}
+.form__input{
+	width: 100%;
+	margin-right: 10px;
+	border-radius: 5px;
+	border: 2px solid $border;
+	background-color: $bgColor;
+	height: 38px;
+    color: inherit;
+    font-size: 20px;
+	padding-left: 10px;
+	outline-color:rgba(255, 255, 255, 0.1);
+}
+
+.form__add{
+	min-width: 90px;
+	height: 43px;
+	font-weight: 600;
+	color: inherit;
+	margin-right: auto;
+	white-space: nowrap;
+	&:hover{
+		color:$hover;
+	}
+
+	// height: 40px;
+}
