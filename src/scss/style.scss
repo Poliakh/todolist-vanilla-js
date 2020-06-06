@@ -1,4 +1,4 @@
-@import '_variables';
+@import "_variables";
 * {
 	margin: 0;
 	padding: 0;
@@ -9,7 +9,6 @@ li {
 	white-space: nowrap;
 }
 
-
 html,
 body {
 	scroll-behavior: smooth;
@@ -17,14 +16,36 @@ body {
 	min-height: 100vh;
 	transition: opacity 0.5s;
 }
-body{
+body {
 	position: relative;
 }
-@mixin trnaitionBG($timeout, $anime){
+@mixin trnaitionBG($timeout, $anime) {
 	-webkit-transition: background $timeout $anime;
 	-moz-transition: background $timeout $anime;
 	-o-transition: background $timeout $anime;
 	transition: background $timeout $anime;
+}
+.link {
+	display: inline-block;
+	color: $colorBase;
+	opacity: 0.4;
+	margin-top: 15px;
+	text-decoration: none;
+	transition: opacity 0.3s;
+	&:after {
+		display: block;
+		content: "";
+		width: 100%;
+		height: 0px;
+		background-color: $colorBase;
+		transition: height 0.15s;
+	}
+	&:hover {
+		opacity: 0.8;
+		&:after {
+			height: 3px;
+		}
+	}
 }
 
 .wrap {
@@ -32,29 +53,25 @@ body{
 	min-width: 300px;
 	min-height: 100%;
 	overflow: hidden;
-	// display: flex;
-	// flex-direction: column;
 	background-color: $bgColor;
 	position: relative;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-weight: 400;
-	color: $colorBase ;
+	color: $colorBase;
 	font-size: 16px;
 	font-style: normal;
 }
 
 .container {
-	// width: 100%;
-	min-width:250px;
-	// background-color: gray;
+	min-width: 250px;
 	max-width: 1170px;
-    margin: 0 auto;
-    padding-right: 15px;
-    padding-left: 15px;
+	margin: 0 auto;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
-$deborder:solid 1px rgba(255, 255, 255, 0.2);
-.debug{
+$deborder: solid 1px rgba(255, 255, 255, 0.2);
+.debug {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -62,14 +79,13 @@ $deborder:solid 1px rgba(255, 255, 255, 0.2);
 	right: 0;
 	border-right: $deborder;
 	border-left: $deborder;
-
 }
 
-.hidden{
+.hidden {
 	overflow: hidden;
 	visibility: hidden;
 	opacity: 0;
 	width: 0;
 	height: 0;
 }
-@import '_todo';
+@import "_todo";

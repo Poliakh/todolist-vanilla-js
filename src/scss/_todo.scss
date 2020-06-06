@@ -1,5 +1,4 @@
-
-#clearItem{
+#clearItem {
 	width: 0;
 	height: 0;
 	visibility: hidden;
@@ -27,52 +26,102 @@
 	border: 2px solid $border;
 	padding: 10px 0;
 	border-top: 0;
+	position: relative;
 	box-sizing: border-box;
+	overflow: hidden;
 	&:hover {
-		& .item__btn-pen{
+		& .item__btn-pen {
 			opacity: 1;
 		}
 	}
 }
-.item:first-child{
-	border-radius: 5px 5px 0 0 ;
-	border-top:2px solid $border;
+.item:first-child {
+	border-radius: 5px 5px 0 0;
+	border-top: 2px solid $border;
 }
-.item:last-child{
-	border-radius: 0 0 5px 5px ;
+.item:last-child {
+	border-radius: 0 0 5px 5px;
 }
-.item__label {
-	margin-left: auto;
+.item__label,
+.ghost__input{
+	color:$colorBase;
+	font-family: 'Montserrat', sans-serif;
 	width: 100%;
 	margin-top: auto;
 	margin-bottom: auto;
-	padding-left: 15px;
+	margin-left: 15px;
+	transition: opacity .5s ease-in-out ;
+	z-index: 1;
+}
+
+.ghost{
+	position: absolute;
+	left: 1%;
+	top: 3%;
+	bottom: 3%;
+	width: 100%;
+	// background-color: rgb(121, 150, 228);
+	background-color: $bgColor;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	opacity: 0;
+	z-index: -10;
+}
+
+.ghost__input{
+	position: absolute;
+	font-size: inherit;
+	font-weight: 600;
+	left: 0;
+	top: 0;
+	bottom:0;
+	width: 77%;
+	background-color: $bgColor;
+	border:none;
+	outline: none;
+	padding-left: 20px;
+    margin-left: 0;
+
+}
+.redact  {
+	& .ghost{
+		opacity: 1;
+		z-index: 10;
+	}
+	& .item__label{
+		// opacity: 0;
+		pointer-events: none;
+	}
 }
 .item__check {
 	margin-top: auto;
 	margin-bottom: auto;
 	margin-left: 15px;
-	width: 15px;
+	width: 25px;
+	height: 25px;
 	cursor: pointer;
-	&:checked ~.item__label{
-		text-decoration:line-through;
+	&:checked ~ .item__label {
+		text-decoration: line-through;
 	}
 }
 
-.item__btn, .form__add {
+.item__btn,
+.form__add {
 	max-width: 35px;
 	min-width: 35px;
 	width: 35px;
 	height: 30px;
 	border-radius: 5px;
 	border: 2px solid $border;
-	margin-right:10px;
+	margin-right: 10px;
 	background-color: $bgColor;
 	cursor: pointer;
 	@include trnaitionBG(0.2s, ease-in-out);
 	outline: none;
-	
-	&:hover, &:focus {
+
+	&:hover,
+	&:focus {
 		background-color: #ffc202;
 		border-color: $hover;
 
@@ -87,62 +136,111 @@
 		& .item__icon {
 			stroke: rgb(255, 255, 255);
 			fill: $colorBase;
-
 		}
 	}
 }
-.item__btn-pen{
-	border:none;
+
+
+
+
+.item__btn-pen {
+	border: none;
 	opacity: 0;
-	transition: opacity .3s;
-	width: 20px;
-	height: 20px;
-	&:hover, &:focus{
-		background-color:inherit;
+	transition: opacity 0.3s;
+	width: 15px;
+	height: 15px;
+	& .item__icon{
+		width: 20px;
+		height: 20px;
+		margin-top: 6px;
+	}
+	&:hover,
+	&:focus {
+		background-color: inherit;
 		opacity: 1;
 		& .item__icon {
 			stroke: rgb(255, 255, 255);
 			fill: rgb(206, 206, 206);
-
 		}
 	}
-	
 }
-.item__icon {
+.ghost__btn{
+	z-index: 1;
+	border:none;
+	outline:none ;
+	max-width: 35px;
+	min-width: 35px;
+	width: 35px;
+	height: 30px;
+	border-radius: 5px;
+	margin-right: 10px;
+	background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+	&:hover .ghost__icon{
+		opacity: 0.8;
+	}
+
+}
+.item__icon,
+.ghost__icon {
 	width: 14px;
 	height: 14px;
 	margin-top: 3px;
 	stroke: $colorBase;
 	fill: $colorBase;
-	transition: stroke 0.15s, fill .15s;
+	transition: stroke 0.15s, fill 0.15s;
 }
-.form{
+.ghost__icon{
+	width: 26px;
+	height: 26px;
+	opacity: 0.5;
+	transition: opacity .3s ease-in-out;
+}
+
+.form {
 	margin-top: 15px;
 	width: 100%;
 	display: flex;
 }
-.form__input{
+.form__input {
 	width: 100%;
 	margin-right: 10px;
 	border-radius: 5px;
 	border: 2px solid $border;
 	background-color: $bgColor;
 	height: 38px;
-    color: inherit;
-    font-size: 20px;
+	color: inherit;
+	font-size: 20px;
 	padding-left: 10px;
-	outline-color:rgba(255, 255, 255, 0.1);
+	outline-color: rgba(255, 255, 255, 0.1);
+	&:paceholder {
+		color: blue;
+	}
+}
+::-webkit-input-placeholder {
+	color: rgba(242, 242, 242, 0.527);
+}
+::-moz-placeholder {
+	color: rgba(242, 242, 242, 0.527);
+}
+/* Firefox 19+ */
+:-moz-placeholder {
+	color: rgba(242, 242, 242, 0.527);
+}
+/* Firefox 18- */
+:-ms-input-placeholder {
+	color: rgba(242, 242, 242, 0.527);
 }
 
-.form__add{
+.form__add {
 	min-width: 90px;
 	height: 43px;
 	font-weight: 600;
 	color: inherit;
 	margin-right: auto;
 	white-space: nowrap;
-	&:hover{
-		color:$hover;
+	&:hover {
+		color: $hover;
 	}
 
 	// height: 40px;
