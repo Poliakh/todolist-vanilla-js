@@ -1,5 +1,6 @@
-**Инструкция**
-[link to page](https://poliakh.github.io/myportfolio/site/todo-list/)
+[link to page](https://poliakh.github.io/myportfolio/site/todo-list/)  
+
+**Инструкция**  
 ---
 gulp v. 3.9.1
 
