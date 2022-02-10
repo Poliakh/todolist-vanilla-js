@@ -32,7 +32,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-pngquant": "^8.0.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^7.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
